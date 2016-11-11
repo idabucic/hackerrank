@@ -1,4 +1,4 @@
-package com.ida.domains.java;
+package com.ida.java;
 
 import java.text.NumberFormat;
 import java.util.Locale;
