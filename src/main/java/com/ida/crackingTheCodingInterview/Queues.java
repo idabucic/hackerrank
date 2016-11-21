@@ -3,9 +3,10 @@ package com.ida.crackingTheCodingInterview;
 import java.util.Scanner;
 import java.util.Stack;
 
+//https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks
 public class Queues {
 	public static void main(String[] args) {
-		
+
 		MyQueue<Integer> queue = new MyQueue<Integer>();
 
 		Scanner scan = new Scanner(System.in);
@@ -25,7 +26,8 @@ public class Queues {
 	}
 }
 
-class MyQueue<T> {
+//too slow
+/*class MyQueue<T> {
 	Stack<T> addingStack = new Stack<T>();
 	Stack<T> removingAndPrintingStack = new Stack<T>();
 
@@ -34,30 +36,51 @@ class MyQueue<T> {
 	}
 
 	public T peek() {
-		if (!addingStack.isEmpty()) {
-			for (int i = 0; i<addingStack.size(); i++) {
-				T x = addingStack.pop();
-				removingAndPrintingStack.push(x);
-			}
-			T ret = removingAndPrintingStack.peek();
-			for (int i = 0; i < removingAndPrintingStack.size(); i++) {
-				addingStack.push(removingAndPrintingStack.pop());
-			}
-			return ret;
+		while (!addingStack.isEmpty()) {
+			removingAndPrintingStack.push(addingStack.pop());
 		}
-		return null;
+		T ret = removingAndPrintingStack.peek();
+		while (!removingAndPrintingStack.isEmpty()) {
+			addingStack.push(removingAndPrintingStack.pop());
+		}
+		return ret;
 	}
 
 	public void dequeue() {
-		if (!addingStack.isEmpty()) {
-			for (int i = 0; i<addingStack.size(); i++) {
-				T x = addingStack.pop();
-				removingAndPrintingStack.push(x);
-			}
-			removingAndPrintingStack.pop();
-			for (int i = 0; i < removingAndPrintingStack.size(); i++) {
-				addingStack.push(removingAndPrintingStack.pop());
-			}
+		while (!addingStack.isEmpty()) {
+			removingAndPrintingStack.push(addingStack.pop());
 		}
+		removingAndPrintingStack.pop();
+		while (!removingAndPrintingStack.isEmpty()) {
+			addingStack.push(removingAndPrintingStack.pop());
+		}
+
+	}
+}*/
+
+class MyQueue<T> {
+	Stack<T> stackNewestOnTop = new Stack<T>();
+	Stack<T> stackOldestOnTop = new Stack<T>();
+
+	public void enqueue(T value) { // Push onto newest stack
+		stackNewestOnTop.push(value);
+	}
+
+	public T peek() {
+		prepOld();
+		return stackOldestOnTop.peek();
+	}
+
+	public T dequeue() {
+
+		prepOld();
+		return stackOldestOnTop.pop();
+
+	}
+
+	public void prepOld() {
+		if (stackOldestOnTop.isEmpty())
+			while (!stackNewestOnTop.isEmpty())
+				stackOldestOnTop.push(stackNewestOnTop.pop());
 	}
 }

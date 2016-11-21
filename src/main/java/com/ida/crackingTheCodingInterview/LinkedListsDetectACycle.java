@@ -6,14 +6,14 @@ import java.util.Set;
 //https://www.hackerrank.com/challenges/ctci-linked-list-cycle
 
 public class LinkedListsDetectACycle {
-	boolean hasCycle(Node head) {
+	boolean hasCycle(ListNode head) {
 		boolean res = false;
 		if (head == null) {
 			res = false;
 		} else {
-			Set<Node> set = new HashSet<Node>();
+			Set<ListNode> set = new HashSet<ListNode>();
 			while (head != null) {
-				Node next = head.next;
+				ListNode next = head.next;
 				if (set.contains(next)) {
 					res = true;
 					break;
@@ -28,11 +28,11 @@ public class LinkedListsDetectACycle {
 	}
 
 	public static void main(String[] args) {
-		Node n = new Node();
+		ListNode n = new ListNode();
 	}
 }
 
-class Node {
+class ListNode {
 	int data;
-	Node next;
+	ListNode next;
 }
