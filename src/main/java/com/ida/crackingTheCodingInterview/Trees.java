@@ -36,7 +36,7 @@ public class Trees {
 		System.out.println(res2);
 	}
 
-	static Set<Integer> set = new HashSet<Integer>();
+	/*static Set<Integer> set = new HashSet<Integer>();
 
 	static boolean checkBST(Node root) {
 		// A binary tree is not a binary search if there are duplicate values
@@ -77,6 +77,18 @@ public class Trees {
 			}
 		}
 		return ret;
+	}*/
+
+	static boolean checkBST(Node root) {
+		return check(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+	}
+
+	static boolean check(Node n, int min, int max) {
+		if (n == null)
+			return true;
+		if (n.data <= min || n.data >= max)
+			return false;
+		return check(n.left, min, n.data) && check(n.right, n.data, max);
 	}
 }
 
