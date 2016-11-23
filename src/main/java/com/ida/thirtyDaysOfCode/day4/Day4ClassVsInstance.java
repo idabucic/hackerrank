@@ -1,8 +1,8 @@
-package com.ida.thirtyDaysOfCode;
+package com.ida.thirtyDaysOfCode.day4;
 
 import java.util.Scanner;
 
-class PersonDay4 {
+class Person {
 	private int age;
 
 	public int getAge() {
@@ -13,7 +13,7 @@ class PersonDay4 {
 		this.age = age;
 	}
 
-	public PersonDay4(int initialAge) {
+	public Person(int initialAge) {
 		// Add some more code to run some checks on initialAge
 		if (initialAge < 0) {
 			this.age = 0;
@@ -48,7 +48,7 @@ public class Day4ClassVsInstance {
 		int T = sc.nextInt();
 		for (int i = 0; i < T; i++) {
 			int age = sc.nextInt();
-			PersonDay4 p = new PersonDay4(age);
+			Person p = new Person(age);
 			p.amIOld();
 			for (int j = 0; j < 3; j++) {
 				p.yearPasses();
