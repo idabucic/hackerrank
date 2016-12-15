@@ -19,7 +19,6 @@ class MyBook extends Book {
 	MyBook(String t, String a, int price) {
 		super(t, a);
 		this.price = price;
-		// TODO Auto-generated constructor stub
 	}
 
 	int price;

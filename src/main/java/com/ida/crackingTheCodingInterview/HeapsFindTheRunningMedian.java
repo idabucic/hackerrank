@@ -10,7 +10,6 @@ public class HeapsFindTheRunningMedian {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] a = new int[n];
-        List<Integer> list = new 
         for(int a_i=0; a_i < n; a_i++){
             a[a_i] = in.nextInt();
             printMedian(a);

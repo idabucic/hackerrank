@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Day26NestedLogic {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		int rd = sc.nextInt();
 		int rm = sc.nextInt();

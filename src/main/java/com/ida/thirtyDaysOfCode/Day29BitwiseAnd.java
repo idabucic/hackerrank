@@ -9,7 +9,6 @@ import java.util.Set;
 public class Day29BitwiseAnd {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		int t = sc.nextInt();
 		for (int i = 0; i < t; i++) {
@@ -19,7 +18,6 @@ public class Day29BitwiseAnd {
 	}
 
 	private static void calculateMaxSumSmallerThenK(int n, int k) {
-		// TODO Auto-generated method stub
 		Set<Integer> sumSet = new HashSet<Integer>();
 		
 		for (int i = 1; i <= n; i++) {
